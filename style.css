@@ -1,0 +1,355 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #0b0e0d;
+    --surface: #141917;
+    --surface-light: #1b2420;
+    --border: #26332d;
+    --green: #b5f36b;
+    --text: #f2f5f1;
+    --muted: #89958d;
+    --danger: #ff6b6b;
+}
+
+body {
+    background: var(--background);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+[hidden] { display: none !important; }
+
+.header {
+    height: 80px;
+    padding: 0 8%;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo { display: flex; align-items: center; gap: 12px; }
+
+.logo-icon {
+    width: 42px;
+    height: 42px;
+    background: var(--green);
+    color: #10150e;
+    display: grid;
+    place-items: center;
+    font-weight: 900;
+    font-size: 22px;
+    border-radius: 10px;
+}
+
+.logo h1 { font-size: 19px; letter-spacing: 2px; }
+
+.logo p {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    margin-top: 3px;
+}
+
+.admin-button {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 11px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 1050px;
+    margin: 55px auto;
+    padding: 0 25px;
+}
+
+.page-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 45px;
+}
+
+.eyebrow {
+    color: var(--green);
+    font-size: 11px;
+    letter-spacing: 2px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.page-heading h2 { font-size: 32px; }
+
+.subtitle { color: var(--muted); margin-top: 9px; font-size: 14px; }
+
+.status {
+    color: var(--green);
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    background: var(--green);
+    border-radius: 50%;
+}
+
+.status.off { color: var(--muted); }
+.status.off .status-dot { background: var(--muted); }
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.section-heading h3 { font-size: 17px; }
+
+.game-number, .queue-count { color: var(--muted); font-size: 11px; }
+
+.match-section { margin-bottom: 40px; }
+
+.match-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 35px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 20px;
+}
+
+.team-label {
+    color: var(--green);
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.team h2 { font-size: 27px; margin: 12px 0 7px; }
+
+.team p, .queue-team p { color: var(--muted); font-size: 13px; }
+
+.team-right { text-align: right; }
+
+.versus { color: var(--muted); font-weight: bold; font-size: 14px; }
+
+.queue-list { display: flex; flex-direction: column; gap: 10px; }
+
+.queue-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 19px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.position { color: var(--green); font-size: 20px; font-weight: bold; }
+
+.queue-team { flex: 1; }
+
+.queue-team h4 { font-size: 15px; margin-bottom: 5px; }
+
+.next-label { color: var(--green); font-size: 10px; font-weight: bold; }
+
+footer {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 65px;
+    padding-bottom: 30px;
+}
+
+footer span { color: var(--green); }
+
+/* ---------- ESTILOS DE CONTROLE E ADMIN ---------- */
+
+.empty {
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 12px;
+    padding: 28px;
+    color: var(--muted);
+    font-size: 14px;
+    text-align: center;
+}
+
+.queue-section, .history-section { margin-bottom: 40px; }
+
+.btn {
+    background: var(--surface-light);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:disabled { opacity: 0.4; cursor: not-allowed; }
+
+.btn-primary {
+    background: var(--green);
+    color: #10150e;
+    border-color: var(--green);
+    font-weight: bold;
+}
+
+.btn-danger { color: var(--danger); border-color: #4a2a2a; }
+
+.btn-small { padding: 7px 11px; font-size: 12px; }
+
+.admin-panel {
+    background: var(--surface);
+    border: 1px solid var(--green);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 40px;
+}
+
+.admin-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.admin-note { color: var(--muted); font-size: 13px; width: 100%; }
+
+.admin-subtitle {
+    margin: 26px 0 12px;
+    font-size: 14px;
+    color: var(--green);
+    letter-spacing: 1px;
+}
+
+.team-form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.form-buttons {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+    background: var(--background);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px;
+    border-radius: 8px;
+    font-size: 15px;
+    width: 100%;
+}
+
+input:focus { outline: 1px solid var(--green); }
+
+.row-actions { display: flex; gap: 8px; }
+
+.tag {
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 4px 7px;
+    white-space: nowrap;
+}
+
+.tag-tie { color: var(--green); border-color: var(--green); }
+
+.history-item { font-size: 13px; }
+.history-item .queue-team p { line-height: 1.5; }
+.history-item strong { color: var(--green); }
+
+dialog {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+    width: min(92vw, 380px);
+    margin: auto;
+}
+
+dialog::backdrop { background: rgba(0, 0, 0, 0.7); }
+
+.login-form { display: flex; flex-direction: column; gap: 12px; }
+
+.login-error { color: var(--danger); font-size: 13px; min-height: 16px; }
+
+.toast {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--surface-light);
+    border: 1px solid var(--green);
+    color: var(--text);
+    padding: 13px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    z-index: 50;
+    max-width: 90vw;
+}
+
+.toast.error { border-color: var(--danger); }
+
+/* Enquanto uma ação está sendo enviada, bloqueia cliques duplos */
+body.busy { pointer-events: none; opacity: 0.85; }
+
+/* ---------- RESPONSIVIDADE PARA CELULAR ---------- */
+@media (max-width: 600px) {
+    .header { padding: 0 18px; }
+    .container { margin: 28px auto; padding: 0 16px; }
+    
+    .page-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+        margin-bottom: 30px;
+    }
+    .page-heading h2 { font-size: 25px; }
+
+    /* Empilha Equipe A, VS e Equipe B no celular para não espremer os nomes */
+    .match-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 22px 16px;
+        gap: 14px;
+    }
+    .team-right { text-align: center; }
+    .team h2 { font-size: 22px; }
+    .team p { font-size: 13px; }
+
+    .queue-item { gap: 12px; padding: 14px; }
+    .team-form { grid-template-columns: 1fr; }
+    .admin-panel { padding: 16px; }
+
+    /* Deixa os botões de controle de partida fáceis de tocar com o polegar */
+    .admin-controls .btn {
+        width: 100%;
+        text-align: center;
+    }
+}

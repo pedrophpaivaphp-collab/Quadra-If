@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUADRA | Futebol</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="logo">
+            <span class="logo-icon">Q</span>
+            <div>
+                <h1>QUADRA</h1>
+                <p>FUTEBOL • IF</p>
+            </div>
+        </div>
+
+        <button class="admin-button" id="adminButton">
+            <span>⚙</span> <span id="adminButtonText">Administrador</span>
+        </button>
+    </header>
+
+    <main class="container">
+
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow" id="eyebrow">QUINTA-FEIRA</p>
+                <h2>Controle de jogos</h2>
+                <p class="subtitle">Acompanhe as partidas e a ordem da quadra.</p>
+            </div>
+            <span class="status" id="statusBox">
+                <span class="status-dot"></span>
+                <span id="statusText">CARREGANDO</span>
+            </span>
+        </section>
+
+        <section class="match-section">
+            <div class="section-heading">
+                <h3>Partida atual</h3>
+                <span class="game-number" id="gameNumber"></span>
+            </div>
+            <div id="matchArea"></div>
+        </section>
+
+        <!-- Painel do administrador (só aparece para admins) -->
+        <section class="admin-panel" id="adminPanel" hidden>
+            <div class="section-heading">
+                <h3>Painel do administrador</h3>
+            </div>
+
+            <div id="adminControls" class="admin-controls"></div>
+
+            <h4 class="admin-subtitle" id="formTitle">Cadastrar equipe</h4>
+            <form id="teamForm" class="team-form" autocomplete="off">
+                <input type="text" maxlength="30" placeholder="Jogador 1" required>
+                <input type="text" maxlength="30" placeholder="Jogador 2">
+                <input type="text" maxlength="30" placeholder="Jogador 3">
+                <input type="text" maxlength="30" placeholder="Jogador 4">
+                <div class="form-buttons">
+                    <button type="submit" class="btn btn-primary" id="teamSubmit">Cadastrar equipe</button>
+                    <button type="button" class="btn" id="teamCancel" hidden>Cancelar edição</button>
+                </div>
+            </form>
+
+            <h4 class="admin-subtitle">Equipes da rodada</h4>
+            <div id="teamList" class="queue-list"></div>
+        </section>
+
+        <section class="queue-section">
+            <div class="section-heading">
+                <h3>Fila de espera</h3>
+                <span class="queue-count" id="queueCount"></span>
+            </div>
+            <div class="queue-list" id="queueArea"></div>
+        </section>
+
+        <section class="history-section">
+            <div class="section-heading">
+                <h3>Histórico</h3>
+                <span class="queue-count">ÚLTIMAS 100 PARTIDAS</span>
+            </div>
+            <div class="queue-list" id="historyArea"></div>
+        </section>
+
+        <footer>
+            QUADRA <span>•</span> SISTEMA DE CONTROLE DE PARTIDAS
+        </footer>
+
+    </main>
+
+    <!-- Janela de login -->
+    <dialog id="loginDialog">
+        <form id="loginForm" class="login-form">
+            <h3>Entrar como administrador</h3>
+            <input type="text" id="loginUser" placeholder="Nome de usuário (ex: joao)" required autocomplete="username">
+            <input type="password" id="loginPassword" placeholder="Senha" required autocomplete="current-password">
+            <p class="login-error" id="loginError"></p>
+            <div class="form-buttons">
+                <button type="submit" class="btn btn-primary">Entrar</button>
+                <button type="button" class="btn" id="loginCancel">Cancelar</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="toast" id="toast" hidden></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+</html>
